@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Eliminar Laboratorio
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-sm">
+        <div class="card-body text-center">
+            <h1 class="text-danger">¿Estás seguro de que deseas eliminar <strong>{{ laboratorio.nombre }}</strong>?</h1>
+            <p class="text-muted">Esta acción no se puede deshacer.</p>
+            
+            <form method="post" class="d-inline">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger me-2">Eliminar</button>
+            </form>
+       
+            <a href="{% url 'listar_laboratorios' %}" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
